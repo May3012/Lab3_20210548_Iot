@@ -59,14 +59,14 @@ public class TasksActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Recuperar el Intent con los datos del usuario y las tareas
+        // Recuperamos el Intent con los datos del usuario y las tareas
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("user");
         listaTareas = (Tareas[]) intent.getSerializableExtra("listaTareas");
 
         logoutIcon = findViewById(R.id.logoutIcon);
         backIcon = findViewById(R.id.iconBack);
-        // Agregar OnClickListener al ícono de logout
+        // OnClickListener al ícono de logout
         logoutIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

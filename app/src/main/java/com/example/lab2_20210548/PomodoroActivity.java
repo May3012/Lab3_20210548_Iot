@@ -63,13 +63,13 @@ public class PomodoroActivity extends AppCompatActivity {
         });
         logoutIcon = findViewById(R.id.logoutIcon);
 
-        // Agregar OnClickListener al ícono de logout
+        //  OnClickListener al ícono de logout
         logoutIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Se cancela todos los trabajos en segundo plano
                 WorkManager.getInstance(PomodoroActivity.this).cancelAllWork();
-                // Ir a la MainActivity y cerrar pomodoro
+                // Ir a la MainActivity y cerramos pomodoro
                 Intent intent = new Intent(PomodoroActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish(); // Finalizar la actividad
@@ -185,7 +185,7 @@ public class PomodoroActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Task task = response.body();
                     if (task != null && task.getTodos().length == 0) {
-                        // Mostrar dialog si no hay tareas
+                        // Se muestra el dialog si no hay tareas
                         MaterialAlertDialogBuilder dialogFinDescanso = new MaterialAlertDialogBuilder(PomodoroActivity.this);
                         dialogFinDescanso.setTitle("Atención");
                         dialogFinDescanso.setMessage("Terminó el tiempo de descanso. Dale al botón de reinicio para empezar otro ciclo");
@@ -198,7 +198,7 @@ public class PomodoroActivity extends AppCompatActivity {
                             }
                         });
                     } else {
-                        // Lanzar TareasActivity si hay tareas
+                        // Se muestra TareasActivity si es que hay tareas
                         Intent intent = new Intent(PomodoroActivity.this, TasksActivity.class);
                         intent.putExtra("listaTareas", task.getTodos());
                         intent.putExtra("user", user);
@@ -215,7 +215,7 @@ public class PomodoroActivity extends AppCompatActivity {
     }
 
 
-    // Lanzar `TareasActivity` para gestionar las tareas
+    // Se muestra`TareasActivity` para gestionar las tareas con ActivityResultLauncher
     ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if (result.getResultCode() == RESULT_OK) {
             Intent data = result.getData();
@@ -225,15 +225,5 @@ public class PomodoroActivity extends AppCompatActivity {
         }
     });
 
-    // Cerrar sesión y cancelar trabajos en segundo plano
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.logoutIcon) {
-            WorkManager.getInstance(PomodoroActivity.this).cancelAllWork();
-            Intent intent = new Intent(PomodoroActivity.this, MainActivity.class);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }

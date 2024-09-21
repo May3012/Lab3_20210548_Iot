@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //verificamos conexión
     public boolean tieneInternet(){
         ConnectivityManager manager =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
