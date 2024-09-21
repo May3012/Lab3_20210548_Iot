@@ -1,0 +1,146 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6EAFB"
+    tools:context=".TasksActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_dynamic_tertiary70"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iconBack"
+        android:layout_width="39dp"
+        android:layout_height="38dp"
+        android:contentDescription="@string/appbar_scrolling_view_behavior"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintBottom_toBottomOf="@id/materialToolbar"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/materialToolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Pomodoro PUCP"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/materialToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/materialToolbar"
+        app:layout_constraintVertical_bias="0.457" />
+
+    <ImageView
+        android:id="@+id/logoutIcon"
+        android:layout_width="39dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/baseline_logout_24"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/materialToolbar"
+        app:layout_constraintBottom_toBottomOf="@id/materialToolbar"
+        android:contentDescription="@string/appbar_scrolling_view_behavior"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="351dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+        <LinearLayout
+            android:layout_width="354dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/icon_gender"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="15dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/baseline_woman_24" />
+
+            <LinearLayout
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/fullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Nombre y apellido" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Correo" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="168dp"
+        android:layout_marginHorizontal="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card"
+        app:layout_constraintVertical_bias="0.147"
+        tools:layout_editor_absoluteX="7dp">
+
+        <TextView
+            android:id="@+id/texto_tareasde"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Ver tareas de "
+            android:textAlignment="textStart" />
+
+        <Spinner
+            android:id="@+id/spinner_tareas"
+            android:layout_width="366dp"
+            android:layout_height="40dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="10sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cambiar_estado_tarea"
+            android:layout_width="186dp"
+            android:layout_height="68dp"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="#B8A0B8"
+            android:gravity="center"
+            android:text="Cambiar estado"
+            app:iconTint="@android:color/black" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
